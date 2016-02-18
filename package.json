@@ -1,0 +1,29 @@
+{
+  "name": "x-mmd-funnyeditor",
+  "version": "1.0.0",
+  "description": "demo js graphic editor for Oleg Chulakov Studio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MetromDouble/x-mmd-funnyeditor.git"
+  },
+  "author": "MetromDouble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MetromDouble/x-mmd-funnyeditor/issues"
+  },
+  "homepage": "https://github.com/MetromDouble/x-mmd-funnyeditor#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-less": "^3.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  }
+}
