@@ -1,18 +1,28 @@
 ;(function () {
 
-  var Editor = function (canvasId) {
+  var Editor = function (canvasId, changeColorId, numOfLinesId) {
     var self = this;
+    this.changeColor = document.getElementById(changeColorId);
+    this.numOfLines = document.getElementById(numOfLinesId);
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext('2d');
     this.objects = {
       dots: [],
       lines: []
     }
-    this.color = "#f77";
-    this.numPrev = 3;
+    this.color = "#ddaaff";
+    this.numPrev = 2;
 
     this.canvas.onclick = function (e) {
       self.newdot(self.objects, e.pageX, e.pageY, self.color, self.numPrev);
+    }
+    this.changeColor.onchange = function () {
+      self.color = self.changeColor.value;
+    }
+    this.numOfLines.onchange = function () {
+      if (self.numOfLines.value.match(/[0-9]/ig)) {
+        self.numPrev = self.numOfLines.value;
+      }
     }
 
     var tick = function () {
@@ -25,11 +35,11 @@
   Editor.prototype = {
     render: function (ctx, objects, x, y) {
       ctx.clearRect(0, 0, x, y);
-      for (var i = 0; i < objects.dots.length; i++) {
-        objects.dots[i].render(ctx);
-      }
       for (var i = 0; i < objects.lines.length; i++) {
         objects.lines[i].render(ctx);
+      }
+      for (var i = 0; i < objects.dots.length; i++) {
+        objects.dots[i].render(ctx);
       }
     },
     newdot: function (objects, x, y, color, numPrev) {
@@ -116,6 +126,6 @@
   }
 
   window.onload = function () {
-    editor = new Editor("editor");
+    editor = new Editor("editor", "color-change", "num-of-lines");
   }
 })();
